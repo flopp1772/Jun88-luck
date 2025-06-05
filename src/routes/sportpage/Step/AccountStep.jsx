@@ -1,10 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import OtpInput from 'react-otp-input';
 
-export default function AccountStep({ account, setAccount, otp, setOtp, onNext }) {
+export default function AccountStep({ account, setAccount, otp, setOtp, onReset }) {
+    const [loading, setLoading] = useState(false);
+
     const handleOtpChange = (value) => {
         const numericValue = value.replace(/\D/g, '').slice(0, 4);
         setOtp(numericValue);
+    };
+
+    const handleCheck = async () => {
+        if (!account || otp.length !== 4) {
+            alert("Vui lòng nhập đầy đủ tài khoản và 4 số cuối.");
+            return;
+        }
+        setLoading(true);
+        try {
+            const res = await fetch(`https://api-client-game-k36.attcloud.org/api/game-lucky-lottery/check-account?account=${encodeURIComponent(account)}&lastBankNumber=${encodeURIComponent(otp)}`);
+            const data = await res.json();
+            if (data.isSuccess) {
+                alert("Tài khoản hợp lệ! Bạn có thể tiếp tục.");
+            } else {
+                alert(data.message || "Tài khoản không đủ điều kiện tham gia.");
+            }
+        } catch (e) {
+            alert("Có lỗi xảy ra, vui lòng thử lại.");
+        }
+        setLoading(false);
     };
 
     return (
@@ -41,7 +63,9 @@ export default function AccountStep({ account, setAccount, otp, setOtp, onNext }
                     renderInput={(props) => <input {...props} className="otp-input-custom" />}
                 />
             </div>
-            <button className="form1-btn" onClick={onNext}>KIỂM TRA</button>
+            <button className="sportpage-btn" onClick={handleCheck} disabled={loading}>
+                {loading ? "ĐANG KIỂM TRA..." : "KIỂM TRA"}
+            </button>
         </>
     );
 }

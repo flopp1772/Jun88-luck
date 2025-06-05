@@ -118,7 +118,7 @@ function BrowserDateField(props) {
 }
 
 function BrowserDatePicker(props) {
-    const { inputFormat, ...otherProps } = props;  // Tách inputFormat ra khỏi props
+    const { inputFormat, ...otherProps } = props;
     return (
         <DatePicker
             format="DD/MM/YYYY"
@@ -128,16 +128,15 @@ function BrowserDatePicker(props) {
     );
 }
 
-// Thêm một wrapper component để kiểm soát kích thước
 const DatePickerWrapper = styled('div')({
     width: '100%',
-    maxWidth: '427.37px', // Giữ max-width để đảm bảo không quá rộng
+    maxWidth: '427.37px',
     margin: '0 auto',
 });
 
 export default function BrowserV7Field({ value, onChange }) {
     const today = dayjs();
-    const minDate = today.subtract(6, 'day');
+    const minDate = today.subtract(4, 'day');
     const maxDate = today;
     return (
         <LocalizationProvider dateAdapter={AdapterDayjs} locale="vi">

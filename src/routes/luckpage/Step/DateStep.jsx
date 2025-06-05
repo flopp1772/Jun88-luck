@@ -32,7 +32,6 @@ export default function DateStep({ date, setDate, account, otp, onNext, setNumbe
                 onNext();
             } else {
                 setError(data.message || "Có lỗi xảy ra.");
-                alert(data.message || "Có lỗi xảy ra.");
             }
         } catch (e) {
             setError("Có lỗi xảy ra, vui lòng thử lại.");
