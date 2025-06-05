@@ -1,0 +1,34 @@
+.info-section {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.value {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: #0db2f5;
+    word-wrap: break-word;
+    padding: 5px;
+    border-radius: 5px;
+    display: inline-block;
+    max-width: 100%;
+}
+
+.value.loading-text,
+.value.error-text {
+    font-style: italic;
+    font-weight: normal;
+}
+
+.value.error-text {
+    color: #dc3545;
+}
+
+.form1-title,
+.form1-label {
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+}
+
+.form1-input,
+.otp-input-custom {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+}

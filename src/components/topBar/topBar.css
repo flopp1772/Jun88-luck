@@ -1,12 +1,78 @@
-.topBar{
-  margin: 16px 0px;
+.topBar {
+  width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 16px;
+  justify-content: flex-start;
+  padding-top: clamp(12px, 4vw, 32px);
+  padding-bottom: clamp(12px, 4vw, 32px);
+  gap: clamp(8px, 2vw, 24px);
+  /* Co giãn mượt mà giữa desktop và mobile */
+  /* Khoảng cách giữa logo và content */
+  box-sizing: border-box;
 }
 
-.search{
-  flex:1;
+.topBar-logo {
+  width: clamp(120px, 25vw, 474px);
+  /* Tự động co giãn từ mobile đến desktop */
+  aspect-ratio: 474 / 165;
+  object-fit: contain;
+  display: block;
+  margin: 0;
+  /* Xoá margin mặc định nếu có */
+  padding: 0;
+  max-width: 100vw;
+  height: auto;
+}
+
+.topBar-content {
+  width: clamp(160px, 40vw, 641px);
+  /* Tự động co giãn từ mobile đến desktop */
+  aspect-ratio: 641 / 198;
+  object-fit: contain;
+  display: block;
+  margin: 0;
+  padding: 0;
+  max-width: 100vw;
+  height: auto;
+  transition: width 0.3s, height 0.3s;
+}
+
+/* Responsive cho tablet */
+@media (max-width: 900px) {
+  .topBar-logo {
+    width: clamp(283px, 40vw, 474px);
+    height: auto;
+    /* Tự động theo tỉ lệ nhờ aspect-ratio */
+  }
+
+  .topBar-content {
+    width: 320px;
+  }
+}
+
+/* Mobile: width/height nhỏ nhất và giảm gap */
+@media (max-width: 700px) {
+  .topBar {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    gap: 0px;
+    /* Mobile: khoảng cách nhỏ hơn */
+  }
+}
+
+@media (max-width: 400px) {
+  .topBar-logo {
+    width: 80vw;
+  }
+
+  .topBar-content {
+    width: 95vw;
+  }
+}
+
+.search {
+  flex: 1;
   background-color: #f1f1f1;
   border-radius: 16px;
   padding: 16px;
@@ -15,8 +81,8 @@
   gap: 16px;
 }
 
-.search input{
-  flex:1;
+.search input {
+  flex: 1;
   background-color: transparent;
   border: none;
   outline: none;

@@ -1,7 +1,7 @@
-import { Outlet } from "react-router";
+import TopBar from '../../components/topBar/topBar.jsx';
 import "./mainLayout.css";
 
-const MainLayout = () => {
+const MainLayout = ({ children }) => {
   return (
     <div className="heroBg">
       <div className="bgMain" />
@@ -9,7 +9,8 @@ const MainLayout = () => {
       <div className="gradient" />
       <div className="ellipse" />
       <div className="mainContent">
-        <Outlet />
+        <TopBar />
+        {children}
       </div>
     </div>
   );

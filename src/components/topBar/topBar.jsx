@@ -1,24 +1,21 @@
-import { useNavigate } from "react-router";
-import Image from "../image/image";
-import UserButton from "../userButton/userButton";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./topBar.css";
+import logo from "../../assets/icon/logo.png";
+import content from "../../assets/icon/content.png";
 
 const TopBar = () => {
   const navigate = useNavigate();
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    navigate(`/search?search=${e.target[0].value}`);
-  };
   return (
     <div className="topBar">
-      {/* SEARCH */}
-      <form onSubmit={handleSubmit} className="search">
-        <Image path="/general/search.svg" alt="" />
-        <input type="text" placeholder="Search" />
-      </form>
-      {/* USER */}
-      <UserButton />
+      <img
+        src={logo}
+        alt="Logo"
+        className="topBar-logo"
+        style={{ cursor: 'pointer' }}
+        onClick={() => navigate("/")}
+      />
+      <img src={content} alt="Header Content" className="topBar-content" />
     </div>
   );
 };

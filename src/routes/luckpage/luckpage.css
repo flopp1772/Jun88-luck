@@ -1,0 +1,171 @@
+.form1-container {
+    position: relative;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%);
+    border-radius: 32px;
+    width: 93%;
+    max-width: 500px;
+    height: auto;
+    margin: auto;
+    padding: 45px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(8px, 3vw, 24px);
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Viền gradient bằng pseudo-element */
+.form1-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 4px;
+    border-radius: 32px;
+    background: linear-gradient(180deg, #36acff 0%, #0ed9fa 100%);
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.form1-title {
+    font-weight: 700;
+    font-size: 1.747rem;
+    /* điều chỉnh theo tỉ lệ mới */
+    line-height: 1.2;
+    text-align: center;
+    text-transform: uppercase;
+    color: #0DB2F5;
+    margin-bottom: 0.5rem;
+}
+
+.form1-label {
+    font-size: 1.1rem;
+    color: #222;
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.form1-input-group {
+    width: 100%;
+    height: auto;
+    position: relative;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form1-input,
+.otp-input-custom {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+}
+
+.form1-input {
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 9.44 / 1;
+    background: #FFFFFF;
+    border: 1.05263px solid #25ABE0;
+    border-radius: 29.4737px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.form1-btn {
+    margin-top: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0.75rem 2.375rem;
+    gap: 0.625rem;
+    background: linear-gradient(95.47deg, #34AFFF 0%, #10D7FA 100%);
+    border: 2px solid #FFFFFF;
+    box-shadow: 0px 0px 22px #5DC1F3;
+    border-radius: 51.69px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-align: center;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.form1-btn:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 0 28px 6px #25ABE0a0;
+    transform: scale(1.04);
+}
+
+.form1-btn:active {
+    filter: brightness(0.95);
+    transform: scale(0.97);
+}
+
+/* Mobile-first: Chữ và nút nhỏ hơn */
+.form1-title {
+    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+}
+
+.form1-container::before {
+    padding: 2px;
+    /* từ 4px xuống 2px */
+}
+
+.form1-btn {
+    font-size: 1rem;
+    padding: 0.6rem 1.5rem;
+}
+
+/* Tablet */
+@media (min-width: 600px) {
+    .form1-title {
+        font-size: 1.6rem;
+    }
+
+    .form1-btn {
+        font-size: 1.1rem;
+        padding: 0.7rem 2rem;
+    }
+}
+
+/* Desktop nhỏ */
+@media (min-width: 768px) {
+    .form1-title {
+        font-size: 1.747rem;
+        /* hoặc 1.7rem */
+    }
+
+    .form1-btn {
+        font-size: 1.2rem;
+        padding: 0.75rem 2.375rem;
+    }
+}
+
+/* Desktop lớn */
+@media (min-width: 1024px) {
+    .form1-title {
+        font-size: 1.8rem;
+    }
+
+    .form1-btn {
+        font-size: 1.2rem;
+        padding: 0.75rem 2.375rem;
+    }
+}

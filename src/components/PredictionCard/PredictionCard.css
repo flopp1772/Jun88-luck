@@ -1,0 +1,172 @@
+.prediction-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 363px;
+    height: 423px;
+    padding: 24px 0 0 0;
+    gap: 20px;
+    position: relative;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(37, 171, 224, 0.08);
+}
+
+/* Lớp phủ trạng thái (ví dụ: ongoing, over) */
+.over {
+    position: absolute;
+    top: 24px;
+    /* bằng padding-top của card */
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.ongoing-row {
+    width: 110.35px;
+    height: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+.ongoing-row.ongoing-active {
+    background: #25ABE0;
+}
+
+.ongoing-row.ongoing-inactive {
+    background: #F37021;
+}
+
+.ongoing-text {
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 15px;
+    text-align: center;
+    font-style: normal;
+}
+
+svg.ongoing-svg-bg {
+    display: block;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+}
+
+.prediction-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    max-width: 326.2px;
+    height: auto;
+}
+
+.prediction-mcp-btn {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 261px;
+    height: 52px;
+    padding: 13.2692px;
+    gap: 13.27px;
+    position: relative;
+    background: linear-gradient(0deg, #59B1FF 0%, #26A9E0 100%);
+    border: 4px solid #FFFFFF;
+    border-radius: 46.4423px;
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 23px;
+    font-style: normal;
+    text-align: center;
+    text-transform: uppercase;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+        inset 8px 8px 15px #FEFEFE;
+}
+
+.prediction-mcp-btn:hover {
+    filter: brightness(1.1);
+    box-shadow: 0px 6px 12px rgba(37, 171, 224, 0.18),
+        0px 4px 4px rgba(0, 0, 0, 0.25),
+        inset 8px 8px 15px #FEFEFE;
+    transform: scale(1.03);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.prediction-mcp-btn:active {
+    filter: brightness(0.95);
+    transform: scale(0.97);
+    transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Tablet: width nhỏ hơn, font nhỏ hơn */
+@media (max-width: 900px) {
+    .prediction-card {
+        width: 300px;
+        height: 350px;
+        padding-top: 16px;
+        gap: 14px;
+    }
+
+    .prediction-mcp-btn {
+        width: 200px;
+        height: 44px;
+        font-size: 16px;
+        border-radius: 32px;
+        padding: 10px;
+    }
+
+    .prediction-image {
+        width: 90%;
+        max-width: 250px;
+        height: auto;
+    }
+
+    .prediction-mcp-btn:active {
+        filter: brightness(0.95);
+        transform: scale(0.97);
+        transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+}
+
+/* Mobile: width 100%, font nhỏ hơn nữa, border-radius nhỏ lại */
+@media (max-width: 600px) {
+    .prediction-card {
+        width: 300px;
+        height: 350px;
+        padding-top: 16px;
+        gap: 14px;
+        border-radius: 12px;
+    }
+
+    .prediction-mcp-btn {
+        width: 200px;
+        height: 44px;
+        font-size: 16px;
+        border-radius: 32px;
+        padding: 10px;
+    }
+
+    .prediction-image {
+        width: 90%;
+        max-width: 250px;
+        height: auto;
+    }
+
+    .prediction-mcp-btn:active {
+        filter: brightness(0.95);
+        transform: scale(0.97);
+        transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+}
