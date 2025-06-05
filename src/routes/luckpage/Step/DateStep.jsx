@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ResponsiveDatePicker from "../../../components/CenteredDatePicker/CenteredDatePicker";
 
-export default function DateStep({ date, setDate, account, otp, onNext }) {
+export default function DateStep({ date, setDate, account, otp, onNext, setNumberLottery, setDepositId, setWithdrawId }) {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
@@ -24,6 +24,11 @@ export default function DateStep({ date, setDate, account, otp, onNext }) {
             });
             const data = await res.json();
             if (data.isSuccess) {
+                if (data.result) {
+                    setNumberLottery && setNumberLottery(data.result.numberLottery || "");
+                    setDepositId && setDepositId(data.result.depositId || "");
+                    setWithdrawId && setWithdrawId(data.result.withdrawId || "");
+                }
                 onNext();
             } else {
                 setError(data.message || "Có lỗi xảy ra.");

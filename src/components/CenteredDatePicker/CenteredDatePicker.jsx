@@ -136,12 +136,17 @@ const DatePickerWrapper = styled('div')({
 });
 
 export default function BrowserV7Field({ value, onChange }) {
+    const today = dayjs();
+    const minDate = today.subtract(6, 'day');
+    const maxDate = today;
     return (
         <LocalizationProvider dateAdapter={AdapterDayjs} locale="vi">
             <DatePickerWrapper>
                 <BrowserDatePicker
                     value={value}
                     onChange={onChange}
+                    minDate={minDate}
+                    maxDate={maxDate}
                     slotProps={{
                         field: { clearable: true },
                     }}

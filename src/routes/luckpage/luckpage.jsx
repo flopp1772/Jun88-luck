@@ -11,6 +11,9 @@ export default function LuckyFormContainer() {
   const [account, setAccount] = useState("");
   const [otp, setOtp] = useState("");
   const [result, setResult] = useState("");
+  const [numberLottery, setNumberLottery] = useState("");
+  const [depositId, setDepositId] = useState("");
+  const [withdrawId, setWithdrawId] = useState("");
 
   const handleNextAccount = () => setStep(2);
   const handleNextDate = () => {
@@ -37,9 +40,12 @@ export default function LuckyFormContainer() {
           account={account}
           otp={otp}
           onNext={handleNextDate}
+          setNumberLottery={setNumberLottery}
+          setDepositId={setDepositId}
+          setWithdrawId={setWithdrawId}
         />
       )}
-      {step === 3 && <Step3 result={result} onReset={handleReset} />}
+      {step === 3 && <Step3 result={result} onReset={handleReset} numberLottery={numberLottery} depositId={depositId} withdrawId={withdrawId} />}
     </div>
   );
 }
