@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./sportpage.css";
-import Step1 from "./Step/Step1";
-import Step2 from "./Step/Step2";
+import SelectTeamStep from "./Step/SelectTeamStep";
+import AccountStep from "./Step/AccountStep";
 
 export default function SportFormContainer() {
   const [step, setStep] = useState(1);
@@ -9,8 +9,12 @@ export default function SportFormContainer() {
   const [account, setAccount] = useState("");
   const [otp, setOtp] = useState("");
   const [result, setResult] = useState("");
+  const [selectedTeam, setSelectedTeam] = useState(null);
 
-  const handleNextStep1 = () => setStep(2);
+  const handleNextStep1 = (team) => {
+    setSelectedTeam(team);
+    setStep(2);
+  };
   const handleNextStep2 = () => {
     setResult("Chúc mừng! Bạn đã đăng ký thành công."); // hoặc logic thực tế
     setStep(3);
@@ -18,10 +22,13 @@ export default function SportFormContainer() {
   const handleReset = () => setStep(1);
 
   return (
-    <div className="form1-container">
-      {step === 1 && <Step1 date={date} setDate={setDate} onNext={handleNextStep1} />}
+    <div class="sportpage-container">
+      {step === 1 &&
+        <SelectTeamStep
+          onNext={handleNextStep1}
+        />}
       {step === 2 && (
-        <Step2
+        <AccountStep
           account={account}
           setAccount={setAccount}
           otp={otp}

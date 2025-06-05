@@ -4,20 +4,25 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 
-export default function Step1({ onNext }) {
+export default function SelectTeamStep({ onNext }) {
     const [selected, setSelected] = React.useState('Pacquiao');
+    const [error, setError] = React.useState("");
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleCheck = () => {
+        if (!selected) {
+            setError("Vui lòng chọn đội thắng.");
+            return;
+        }
+        setError("");
         onNext(selected);
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <h2 className="form1-title">DỰ ĐOÁN THỂ THAO</h2>
-            <div className="form1-label" style={{ color: '#0DB2F5', fontWeight: 700, marginBottom: 0 }}>QUYỀN ANH 19/7/2025</div>
-            <div className="form1-label" style={{ marginBottom: 16 }}>Lựa chọn đội thắng</div>
-            <FormControl component="fieldset" style={{ width: '100%', marginBottom: 24 }}>
+        <>
+            <h2 className="sportpage-title">DỰ ĐOÁN THỂ THAO</h2>
+            <div className="sportpage-label sportpage-label--blue">QUYỀN ANH 19/7/2025</div>
+            <div className="sportpage-label sportpage-label--mb16">Lựa chọn đội thắng</div>
+            <FormControl component="fieldset" className="sportpage-formcontrol">
                 <RadioGroup
                     row
                     aria-label="team"
@@ -30,6 +35,8 @@ export default function Step1({ onNext }) {
                     <FormControlLabel value="Barrios" control={<Radio sx={{ color: '#0DB2F5', '&.Mui-checked': { color: '#0DB2F5' } }} />} label="Barrios" />
                 </RadioGroup>
             </FormControl>
-        </form>
+            {error && <div className="sportpage-label" style={{ color: 'red', marginBottom: 8 }}>{error}</div>}
+            <button className="sportpage-btn" onClick={handleCheck}>KIỂM TRA</button>
+        </>
     );
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import OtpInput from 'react-otp-input';
 
-export default function Step2({ account, setAccount, otp, setOtp, onNext }) {
+export default function AccountStep({ account, setAccount, otp, setOtp, onNext }) {
     const handleOtpChange = (value) => {
         const numericValue = value.replace(/\D/g, '').slice(0, 4);
         setOtp(numericValue);
@@ -9,7 +9,7 @@ export default function Step2({ account, setAccount, otp, setOtp, onNext }) {
 
     return (
         <>
-            <h2 className="form1-title">DỰ ĐOÁN THỂ THAO</h2>
+            <h2 className="sportpage-title">DỰ ĐOÁN THỂ THAO</h2>
             <label className="form1-label" htmlFor="account">Tài khoản</label>
             <div className="form1-input-group">
                 <input

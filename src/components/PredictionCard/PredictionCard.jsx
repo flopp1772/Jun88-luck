@@ -19,7 +19,7 @@ const PredictionCard = ({
 
                 {isActive ? <ActiveSVG /> : <InactiveSVG />}
             </div>
-            <button className="prediction-mcp-btn" onClick={onClick} disabled={!isActive}>{title}</button>
+            <button className="prediction-mcp-btn" onClick={onClick}>{title}</button>
         </div>
     );
 };

@@ -1,4 +1,4 @@
-.sportpage-container {
+.loto-container {
     position: relative;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%);
     border-radius: 32px;
@@ -17,7 +17,7 @@
 }
 
 /* Viền gradient bằng pseudo-element */
-.sportpage-container::before {
+.loto-container::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -36,7 +36,7 @@
     z-index: 2;
 }
 
-.sportpage-title {
+.loto-title {
     font-weight: 700;
     font-size: 1.747rem;
     /* điều chỉnh theo tỉ lệ mới */
@@ -47,7 +47,7 @@
     margin-bottom: 0.5rem;
 }
 
-.sportpage-label {
+.loto-label {
     font-size: 1.1rem;
     color: #222;
     margin-bottom: 0.25rem;
@@ -55,38 +55,7 @@
     text-align: center;
 }
 
-.sportpage-input-group {
-    width: 100%;
-    height: auto;
-    position: relative;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.sportpage-input,
-.otp-input-custom {
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
-}
-
-.sportpage-input {
-    box-sizing: border-box;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 9.44 / 1;
-    background: #FFFFFF;
-    border: 1.05263px solid #25ABE0;
-    border-radius: 29.4737px;
-    padding: 0 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 1.5rem;
-    text-align: center;
-}
-
-.sportpage-btn {
+.loto-btn {
     margin-top: 0;
     box-sizing: border-box;
     display: flex;
@@ -107,39 +76,39 @@
     transition: all 0.3s ease;
 }
 
-.sportpage-btn:hover {
+.loto-btn:hover {
     filter: brightness(1.1);
     box-shadow: 0 0 28px 6px #25ABE0a0;
     transform: scale(1.04);
 }
 
-.sportpage-btn:active {
+.loto-btn:active {
     filter: brightness(0.95);
     transform: scale(0.97);
 }
 
 /* Mobile-first: Chữ và nút nhỏ hơn */
-.sportpage-title {
+.loto-title {
     font-size: clamp(1.4rem, 2.5vw, 1.8rem);
 }
 
-.sportpage-container::before {
+.loto-container::before {
     padding: 2px;
     /* từ 4px xuống 2px */
 }
 
-.sportpage-btn {
+.loto-btn {
     font-size: 1rem;
     padding: 0.6rem 1.5rem;
 }
 
 /* Tablet */
 @media (min-width: 600px) {
-    .sportpage-title {
+    .loto-title {
         font-size: 1.6rem;
     }
 
-    .sportpage-btn {
+    .loto-btn {
         font-size: 1.1rem;
         padding: 0.7rem 2rem;
     }
@@ -147,12 +116,12 @@
 
 /* Desktop nhỏ */
 @media (min-width: 768px) {
-    .sportpage-title {
+    .loto-title {
         font-size: 1.747rem;
         /* hoặc 1.7rem */
     }
 
-    .sportpage-btn {
+    .loto-btn {
         font-size: 1.2rem;
         padding: 0.75rem 2.375rem;
     }
@@ -160,28 +129,28 @@
 
 /* Desktop lớn */
 @media (min-width: 1024px) {
-    .sportpage-title {
+    .loto-title {
         font-size: 1.8rem;
     }
 
-    .sportpage-btn {
+    .loto-btn {
         font-size: 1.2rem;
         padding: 0.75rem 2.375rem;
     }
 }
 
 /* Các class bổ sung cho Step1 */
-.sportpage-label--blue {
+.loto-label--blue {
     color: #0DB2F5;
     font-weight: 700;
     margin-bottom: 0;
 }
 
-.sportpage-label--mb16 {
+.loto-label--mb16 {
     margin-bottom: 16px;
 }
 
-.sportpage-formcontrol {
+.loto-formcontrol {
     width: 100%;
     margin-bottom: 24px;
 }

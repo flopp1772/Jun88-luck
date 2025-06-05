@@ -29,14 +29,14 @@ const Homepage = () => {
       status: "Chưa kích hoạt",
       imageSrc: LottoPredict,
       isActive: false,
-      onClick: () => navigate('/luckpage'),
+      onClick: () => navigate('/lotto'),
     },
     {
       title: "DỰ ĐOÁN ĐẠI SỨ",
       status: "Chưa kích hoạt",
       imageSrc: AmbPredict,
       isActive: false,
-      onClick: () => navigate('/luckpage'),
+      onClick: () => navigate('/ambpage'),
     },
   ];
 
