@@ -7,18 +7,16 @@ export default function SportFormContainer() {
   const [step, setStep] = useState(1);
   const [account, setAccount] = useState("");
   const [otp, setOtp] = useState("");
+  const [selectedTeam, setSelectedTeam] = useState(null);
 
   const handleNextStep1 = (team) => {
     setSelectedTeam(team);
     setStep(2);
   };
-  const handleNextStep2 = () => {
-    setStep(3);
-  };
   const handleReset = () => setStep(1);
 
   return (
-    <div class="sportpage-container">
+    <div className="sportpage-container">
       {step === 1 &&
         <SelectTeamStep
           onNext={handleNextStep1}
