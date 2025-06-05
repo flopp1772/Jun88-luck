@@ -3,7 +3,7 @@ import "./luckpage.css";
 import ResponsiveDatePicker from "../../components/CenteredDatePicker/CenteredDatePicker";
 import DateStep from "./Step/DateStep";
 import AccountStep from "./Step/AccountStep";
-import Step3 from "./Step/Step3";
+import LuckyResult from "./Step/LuckyResult";
 
 export default function LuckyFormContainer() {
   const [step, setStep] = useState(1);
@@ -45,7 +45,7 @@ export default function LuckyFormContainer() {
           setWithdrawId={setWithdrawId}
         />
       )}
-      {step === 3 && <Step3 result={result} onReset={handleReset} numberLottery={numberLottery} depositId={depositId} withdrawId={withdrawId} />}
+      {step === 3 && <LuckyResult result={result} onReset={handleReset} numberLottery={numberLottery} depositId={depositId} withdrawId={withdrawId} />}
     </div>
   );
 }

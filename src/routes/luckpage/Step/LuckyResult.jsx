@@ -1,7 +1,7 @@
 import React from 'react';
-import './Step3.css';
+import './LuckyResult.css';
 
-export default function Step3({ numberLottery, depositId, withdrawId, onReset }) {
+export default function LuckyResult({ numberLottery, depositId, withdrawId, onReset }) {
     return (
         <>
             <h2 className="form1-title">DỰ ĐOÁN MAY MẮN</h2>
